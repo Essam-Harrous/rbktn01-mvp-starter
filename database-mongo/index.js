@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/memes');
 
 var db = mongoose.connection;
 
@@ -11,21 +11,35 @@ db.once('open', function() {
   console.log('mongoose connected successfully');
 });
 
-var itemSchema = mongoose.Schema({
-  quantity: Number,
-  description: String
+var memeTemplatesSchema = mongoose.Schema({
+  id: Number,
+  name: String,
+  url: String,
+  width: Number,
+  height: Number,
+  box_count: Number
 });
 
-var Item = mongoose.model('Item', itemSchema);
 
-var selectAll = function(callback) {
-  Item.find({}, function(err, items) {
-    if(err) {
-      callback(err, null);
-    } else {
-      callback(null, items);
-    }
-  });
-};
+var memeTemplate = mongoose.model('memeTemplate', memeTemplatesSchema);
 
-module.exports.selectAll = selectAll;
+var generatedMemesSchema = mongoose.Schema({
+  url: String,
+  name: String
+})
+
+var generatedMeme = mongoose.model('generatedMeme', generatedMemesSchema)
+
+
+// var selectAll = function(callback) {
+//   Item.find({}, function(err, items) {
+//     if(err) {
+//       callback(err, null);
+//     } else {
+//       callback(null, items);
+//     }
+//   });
+// };
+
+module.exports.memeTemplate = memeTemplate;
+module.exports.generatedMeme = generatedMeme;
