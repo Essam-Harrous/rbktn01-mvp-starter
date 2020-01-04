@@ -19,15 +19,12 @@ class MemeTemplate extends Component {
     }
     return (
       <div style={card}>
-        <Link to="/templates/generateMeme">
           <div onClick={()=>this.props.selectedTemplate(this.props.i)} style={{width: '380px', height: '300px'}}>
             <img src={this.props.meme.url} alt="Avatar" width="100%" height="100%"/>
           </div>
           <div style={container}>
             <h4><b>{this.props.meme.name}</b></h4> 
           </div>
-
-        </Link>
       </div>
      );
   }

@@ -19,7 +19,10 @@ class LastMemes extends Component  {
         </h1>
         <div style={containerStyle}>
           {this.props.memes.map((meme)=> {
-            return <MemeTemplate key={meme._id} meme={meme}/>
+            return <a target="_blank" key={meme._id} download={meme.name + ".jpg"} href={meme.url} title={meme.name}>
+              <MemeTemplate meme={meme}/>
+
+            </a>
           })}
         </div>
       </div>

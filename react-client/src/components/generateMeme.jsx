@@ -133,12 +133,12 @@ class GenerateMeme extends Component {
           <div style={{position: "relative", top: "150px", left: '-20px'}}>
             <div>
               <label>Text 1</label>
-              <input onChange={(e) => this.handleChange(e, 'text1')} type="text"/>
+              <input style={{color: 'black'}} onChange={(e) => this.handleChange(e, 'text1')} type="text"/>
             </div>
             <div  style={{marginTop: '25px'}}>
               <div>
                 <label>Text 2</label>
-                <input onChange={(e) => this.handleChange(e, 'text2')} type="text"/>
+                <input style={{color: 'black'}} onChange={(e) => this.handleChange(e, 'text2')} type="text"/>
               </div>
             </div>
           </div>

@@ -25,16 +25,14 @@ app.get('/memeTemplates', (req, res) =>{
 });
 
 app.get('/generatedMemes', (req, res) =>{
-  generatedMeme.find({},(err, data)=> {
+  generatedMeme.find({}, null, {sort: {_id: -1}},(err, data)=> {
     res.json(data)
   })
 });
 
 app.post('/generateMeme', (req, res) => {
   console.log(req.body)
-  axios.post(`https://api.imgflip.com/caption_image?template_id=${req.body.template_id}&username=${req.body.username}&password=${req.body.password}&text0=${req.body.boxes[0].text}&text1=${req.body.boxes[1].text}`, {
-    'usrename': 'im'
-  })
+  axios.post(`https://api.imgflip.com/caption_image?template_id=${req.body.template_id}&username=${req.body.username}&password=${req.body.password}&text0=${req.body.boxes[0].text}&text1=${req.body.boxes[1].text}`)
   .then(function (response) {
     console.log(response.data.data);
     generatedMeme.create({...response.data.data, name: req.body.name},(err, data)=> {

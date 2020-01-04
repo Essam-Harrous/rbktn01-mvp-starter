@@ -26,7 +26,7 @@ class App extends React.Component {
   addMeme(createdMeme) {
     let prevMemes = this.state.createdMemes
     this.setState({
-        createdMemes: [...prevMemes, createdMeme]
+        createdMemes: [createdMeme, ...prevMemes]
       }, ()=> console.log(this.state.createdMemes))
     
   }
