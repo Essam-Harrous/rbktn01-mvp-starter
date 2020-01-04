@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Draggable, {DraggableCore} from 'react-draggable';
 import $ from 'jquery';
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 
 class GenerateMeme extends Component {
@@ -142,7 +143,7 @@ class GenerateMeme extends Component {
             </div>
           </div>
         </div>
-        <button onClick={() => this.generateMeme()}>Generate</button>
+        <Link to="/"><button onClick={() => this.generateMeme()}>Generate</button></Link>
       </div>
     )
   }
